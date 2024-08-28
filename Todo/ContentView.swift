@@ -21,12 +21,14 @@ struct ContentView: View {
                     HStack {
                         Text(todo.title)
                             .strikethrough(todo.isCompleted)
+                            .foregroundStyle(todo.locked  ? Color.red : Color.green)
                         Spacer()
                         if let dueDate = todo.dueDate {
                             Text(dueDate, style: .date)
                                 .foregroundColor(.gray)
                                 .font(.footnote)
                         }
+                        Spacer()
                     }
                     .onTapGesture {
                         toggleComplete(todo)
