@@ -15,23 +15,13 @@ struct TodoApp: App {
     init() {
         do {
             container = try ModelContainer(
-                for: Todo.self, migrationPlan: TodosMigrationPlan.self
+                for: Todo.self,
+                migrationPlan: TodosMigrationPlan.self
             )
         } catch {
             fatalError("Failed to initialize model container.")
         }
     }
-
-//    init() {
-//        do {
-//            container = try ModelContainer(
-//                for: Todo.self,
-//                migrationPlan: TodosMigrationPlan.self
-//            )
-//        } catch {
-//            fatalError("Failed to initialize model container.")
-//        }
-//    }
 
     var body: some Scene {
         WindowGroup {
